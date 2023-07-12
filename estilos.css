@@ -1,69 +1,81 @@
 body {
-    background-color: #131c23;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  background-color: #131c23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 10%;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.caja {
+  width: 30%;
+  max-width: 400px; /* Limita el ancho máximo en dispositivos móviles */
+  height: 400px;
+  background-color: rgb(0, 0, 84);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  margin: 20px; /* Agrega un margen para separar del borde de la pantalla */
+}
+
+.fecha {
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.label {
+  font-size: 25px;
+  height: 40px;
+}
+
+p {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.boton {
+  display: block;
+  width: 35%;
+  max-width: 200px; /* Limita el ancho máximo en dispositivos móviles */
+  margin: 20px auto; /* Centra el botón horizontalmente y agrega un margen */
+  background-color: bisque;
+  border-radius: 5px;
+  text-align: center;
+  padding: 4%;
+  cursor: pointer;
+  text-decoration: none;
+  color: #212F3C;
+}
+
+.boton:hover {
+  background-color: #f3d6ad;
+}
+
+@media (max-width: 768px) {
+  /* Estilos para dispositivos con un ancho máximo de 768px */
+  body {
+    padding: 20px; /* Agrega un margen interior en dispositivos móviles */
   }
-  
-  h1 {
-    text-align: center;
-    padding-top: 10%;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
+
   .caja {
-    width: 30%;
-    height: 400px;
-    background-color: rgb(0, 0, 84);
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    width: 90%; /* Modificado para ocupar el ancho disponible */
+    height: auto; /* Ajusta la altura automáticamente según el contenido */
+    margin: 0 auto; /* Centra la caja horizontalmente */
   }
-  
-  .fecha {
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
 
-  }
-  
-  .label {
-    font-size: 25px;
-    height: 40px;
-  }
-  
-  p {
-    color: white;
-    font-size: 15px;
-    text-align: center;
-  }
-  
   .boton {
-    display: block;
-    width: 35%;
-    margin-top: 20px;
-    background-color: bisque;
-    border-radius: 5px;
-    text-align: center;
-    padding: 4%;
-    cursor: pointer;
-    text-decoration: none;
-    color: #212F3C;
-    margin: auto;
-    
+    width: 70%; /* Modificado para ocupar el ancho disponible */
+    margin: 20px auto; /* Centra el botón horizontalmente */
   }
-
-
-  .boton:hover{
-    background-color: #f3d6ad;
-  }
-
-
-  .boton:hover{
-    background-color: #f3d6ad;
-  }
+}
