@@ -1,0 +1,64 @@
+body {
+    background-color: #212F3C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    padding-top: 10%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .caja {
+    width: 30%;
+    height: 400px;
+    background-color: rgb(0, 0, 84);
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .fecha {
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    
+  }
+  
+  .label {
+    font-size: 25px;
+    height: 40px;
+  }
+  
+  p {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .boton {
+    display: block;
+    width: 35%;
+    margin-top: 20px;
+    background-color: bisque;
+    border-radius: 5px;
+    text-align: center;
+    padding: 4%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #212F3C;
+    margin: auto;
+    
+  }
+
+
+  .boton:hover{
+    background-color: #f3d6ad;
+  }
