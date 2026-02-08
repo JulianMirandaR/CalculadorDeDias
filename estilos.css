@@ -300,6 +300,31 @@ input[type="date"]:focus {
   margin-top: 0.25rem;
 }
 
+/* State Classes */
+.resultado-container.success {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.resultado-container.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Milestone Text Style */
+.milestone-detail {
+  font-size: 0.8em;
+  font-weight: normal;
+  display: block;
+  /* Ensures it breaks to new line if inside span, or just style parent */
+}
+
+/* Visibility Helper */
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @media (max-width: 480px) {
   h1 {
     font-size: 1.5rem;

@@ -22,10 +22,9 @@ function calcularDias() {
 
     if (!fechaNacimientoVal) {
         resultText.innerHTML = "Por favor, selecciona una fecha válida.";
+        resultContainer.classList.remove("success");
+        resultContainer.classList.add("visible", "error");
         resultContainer.style.display = "block";
-        resultContainer.classList.add("visible");
-        resultContainer.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
-        resultContainer.style.borderColor = "rgba(239, 68, 68, 0.2)";
         return;
     }
 
@@ -42,9 +41,9 @@ function calcularDias() {
     // Check if future date
     if (fechaNacimientoCompleta > fechaActual) {
         resultText.innerHTML = "¡Aún no has nacido! Selecciona una fecha pasada.";
+        resultContainer.classList.remove("success");
+        resultContainer.classList.add("visible", "error");
         resultContainer.style.display = "block";
-        resultContainer.classList.add("visible");
-        resultContainer.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
         return;
     }
 
@@ -53,8 +52,9 @@ function calcularDias() {
 
     if (!isNaN(diasVividos)) {
         // Success state
-        resultContainer.style.backgroundColor = "rgba(99, 102, 241, 0.1)";
-        resultContainer.style.borderColor = "rgba(99, 102, 241, 0.2)";
+        // Success state
+        resultContainer.classList.remove("error");
+        resultContainer.classList.add("success");
 
         var diasFormateados = diasVividos.toLocaleString('es-ES');
         resultText.innerHTML = `Has vivido <strong>${diasFormateados}</strong> días hasta hoy.`;
@@ -63,13 +63,13 @@ function calcularDias() {
         var percentage = (diasVividos / lifeExpectancyDays) * 100;
         if (percentage > 100) percentage = 100; // Cap at 100
 
-    
+
         var nextMilestone = Math.ceil((diasVividos + 1) / 5000) * 5000; // Changed to 5k for more frequent milestones
         var daysLeft = nextMilestone - diasVividos;
         var futureDate = new Date();
         futureDate.setDate(fechaActual.getDate() + daysLeft);
         var dateString = futureDate.toLocaleDateString('es-ES');
-        nextMilestoneText.innerHTML = `${nextMilestone.toLocaleString()} días<br><span style="font-size:0.8em; font-weight:normal">Faltan ${daysLeft} días (${dateString})</span>`;
+        nextMilestoneText.innerHTML = `${nextMilestone.toLocaleString()} días<span class="milestone-detail">Faltan ${daysLeft} días (${dateString})</span>`;
 
         var zodiacInfo = getZodiacSign(dia, mes + 1);
         zodiacText.innerHTML = `${zodiacInfo.name}<span class="zodiac-trait">${zodiacInfo.trait}</span>`;
@@ -92,8 +92,9 @@ function calcularDias() {
 
     } else {
         resultText.innerHTML = "Ocurrió un error al calcular los días.";
+        resultContainer.classList.remove("success");
+        resultContainer.classList.add("visible", "error");
         resultContainer.style.display = "block";
-        resultContainer.classList.add("visible");
     }
 }
 
@@ -131,8 +132,10 @@ async function fetchHistoricalEvents(day, month, year) {
 
     // UI Reset
     funFactText.innerHTML = "Escaneando historia (Wikipedia & Wikidata)...";
-    prevBtn.style.visibility = "hidden";
-    nextBtn.style.visibility = "hidden";
+    // UI Reset
+    funFactText.innerHTML = "Escaneando historia (Wikipedia & Wikidata)...";
+    prevBtn.classList.add("invisible");
+    nextBtn.classList.add("invisible");
     eventsList = [];
     currentEventIndex = 0;
 
@@ -205,8 +208,8 @@ async function fetchHistoricalEvents(day, month, year) {
             updateEventDisplay();
 
             if (eventsList.length > 1) {
-                prevBtn.style.visibility = "visible";
-                nextBtn.style.visibility = "visible";
+                prevBtn.classList.remove("invisible");
+                nextBtn.classList.remove("invisible");
 
                 prevBtn.onclick = () => navigateEvent(-1);
                 nextBtn.onclick = () => navigateEvent(1);
