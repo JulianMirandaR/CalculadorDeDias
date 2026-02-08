@@ -1,21 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
-    <title>Calculadora de Dias</title>
+    <title>Calculadora de Días de Vida</title>
 </head>
 <body>
-    <div class="caja">
-        <h1>CALCULADORA DE DIAS DE VIDA</h1>
-        <div class="fecha">
-            <label class="label" for="fecha">Fecha de nacimiento:</label>
-            <input type="date" id="fecha" name="fecha">
-            <button class="boton" onclick="calcularDias()">Calcular</button>
-            <p id="resultado"></p>
+    <div class="main-container">
+        <div class="card">
+            <header>
+                <h1>Tu Tiempo en dias en la Tierra</h1>
+                <p class="subtitle">Descubre cuánto has vivido</p>
+            </header>
+            <div class="input-group">
+                <label class="label" for="fecha">Fecha de Nacimiento</label>
+                <input type="date" id="fecha" name="fecha">
+            </div>
+            <button class="boton" onclick="calcularDias()">Calcular Tiempo</button>
+            <div id="resultado-container" class="resultado-container hidden">
+                <p id="resultado"></p>
+                
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span>Progreso de Vida (Est. 80 años)</span>
+                        <span id="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="life-progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="icon">✨</div>
+                        <h3>Próximo Hito</h3>
+                        <p id="next-milestone">Calculando...</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">🔮</div>
+                        <h3>Signo Zodiacal</h3>
+                        <p id="zodiac-sign">Calculando...</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">📅</div>
+                        <h3>Día de Nacimiento</h3>
+                        <p id="birth-day">Calculando...</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon">💡</div>
+                        <h3>Acontecimiento</h3>
+                        <div class="carousel-container">
+                            <button class="nav-btn prev" id="prev-event" aria-label="Anterior">‹</button>
+                            <div id="fun-fact" class="event-content">Calculando...</div>
+                            <button class="nav-btn next" id="next-event" aria-label="Siguiente">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
 </html>
